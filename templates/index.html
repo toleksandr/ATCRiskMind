@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="{{session.get('lang', 'uk')}}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ _('Платформа оцінки ризику професійної діяльності авіадиспетчерів') }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@7.2.3/css/flag-icons.min.css" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.min.css') }}">
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#" style="user-select: none;">
+                    <i class="fas fa-plane-departure me-2"></i>
+                    ATCRiskMind
+                </a>
+                <div class="language-selector dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="languageDropdown" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <span class="fi fi-{{ 'ua' if session.get('lang', 'uk') == 'uk' else 'gb' }} me-2"></span>
+                        {{ _('Українська') if session.get('lang', 'uk') == 'uk' else _('English') }}
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+                        <li>
+                            <a class="dropdown-item {% if session.get('lang', 'uk') == 'uk' %}active{% endif %}"
+                                href="{{ url_for('set_language', lang='uk') }}">
+                                <span class="fi fi-ua me-2"></span> Українська
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item {% if session.get('lang') == 'en' %}active{% endif %}"
+                                href="{{ url_for('set_language', lang='en') }}">
+                                <span class="fi fi-gb me-2"></span> English
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="main-content">
+            <div class="container-fluid py-4">
+                <div class="row mb-4 d-flex align-items-stretch">
+                    <div class="col-md-6 d-flex">
+                        <div class="card shadow-sm flex-fill" id="i1">
+                            <div class="card-header">
+                                <h5><i class="fas fa-cog me-2"></i>{{ _('Параметри конфігурації системи') }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <label for="numDispatchers" class="form-label">
+                                            <i class="fas fa-users me-1"></i>{{ _('Кількість авіадиспетчерів') }}
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-user-tie"></i></span>
+                                            <input type="number" class="form-control" id="numDispatchers" min="1"
+                                                max="10" value="5">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="numTimePeriods" class="form-label">
+                                            <i class="fas fa-clock me-1"></i>{{ _('Інтервали часу оцінювання') }}
+                                        </label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="fas fa-hourglass-half"></i></span>
+                                            <input type="number" class="form-control" id="numTimePeriods" min="1"
+                                                max="10" value="8">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button id="setupTables" class="btn btn-primary">
+                                    <i class="fas fa-table me-1"></i>{{ _('Використати зразкові дані') }}
+                                </button>
+
+                                <button id="randomizeFill" class="btn btn-secondary">
+                                    <i class="fas fa-random me-1"></i>{{ _('Згенерувати випадкові дані') }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 d-flex">
+                        <div class="card shadow-sm flex-fill" id="lambda_mh">
+                            <div class="card-header">
+                                <h5><i class="fas fa-wave-square me-2"></i>{{ _('Фазифіковані вхідні дані за квадратичним Z-сплайном') }}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-sm" id="lambdaMhTable">
+                                        <thead class="table-light">
+                                        </thead>
+                                        <tbody>
+                                            <!-- DYNAMIC -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4 d-flex align-items-stretch">
+                    <div class="col-md-6 d-flex">
+                        <div class="card shadow-sm flex-fill" id="T1">
+                            <div class="card-header">
+                                <h5><i class="fas fa-tired me-2"></i>{{ _('Показники втомленості авіадиспетчерів') }}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-sm" id="fatigueTable">
+                                        <thead class="table-light">
+                                            <tr id="fatigueTableHeader">
+                                                <!-- DYNAMIC -->
+                                            </tr>
+                                        </thead>
+                                        <tbody id="fatigueTableBody">
+                                            <!-- DYNAMIC -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <div class="card shadow-sm flex-fill" id="D1">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-treemap me-2"></i>{{ _('Візуалізація фазифікованих даних за квадратичним Z-сплайном') }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <div id="treemapLambdaMh"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm" id="Fa">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-line me-2"></i>{{ _('Загальні прогнозовані кількісні оцінки втомленості авіадиспетчерів') }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-sm" id="faResultsTable">
+                                        <thead class="table-light">
+                                        </thead>
+                                        <tbody>
+                                            <!-- DYNAMIC -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card shadow-sm" id="Lmh">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-area me-2"></i>{{ _('Фазифіковані вхідні дані за S-подібною функцією належності') }}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-sm" id="lmhOutputTable">
+                                        <thead class="table-light">
+                                        </thead>
+                                        <tbody>
+                                            <!-- DYNAMIC -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4 d-flex align-items-stretch">
+                    <div class="col-md-6 d-flex">
+                        <div class="card shadow-sm flex-fill" id="T2">
+                            <div class="card-header">
+                                <h5><i class="fas fa-brain me-2"></i>{{ _('Бальні оцінки ментального здоров`я авіадиспетчерів') }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-sm" id="mentalHealthTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <!-- DYNAMIC -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- DYNAMIC -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 d-flex">
+                        <div class="card shadow-sm flex-fill" id="D2">
+                            <div class="card-header">
+                                <h5><i class="fas fa-chart-treemap me-2"></i>{{ _('Візуалізація фазифікованих даних за за S-подібною функцією належності') }}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="chart-container">
+                                    <div id="treemapLmh"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card shadow-sm" id="la">
+                            <div class="card-header">
+                                <h5><i class="fas fa-sigma me-2"></i>{{ _('Агреговані значення результатів оцінювання')}}</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-hover table-sm" id="lResultsTable">
+                                        <thead class="table-light">
+                                            <tr>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- DYNAMIC -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card shadow-sm" id="S1">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-sliders-h me-2"></i>{{ _('Налаштування рівней експертного висновку') }}</h5>
+                                    </div>
+                                    <div class="card-body slider-card-body">
+                                        <div id="lRangeSlider" class="range-slider mb-4"></div>
+                                        <div class="range-slider-labels">
+                                            <span class="badge bg-l1">L1</span>
+                                            <span class="badge bg-l2">L2</span>
+                                            <span class="badge bg-l3">L3</span>
+                                            <span class="badge bg-l4">L4</span>
+                                            <span class="badge bg-l5">L5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card shadow-sm" id="S2">
+                                    <div class="card-header">
+                                        <h5><i class="fas fa-sliders-h me-2"></i>{{ _('Налаштування лінгвістичних рівней ризику') }}</h5>
+                                    </div>
+                                    <div class="card-body slider-card-body">
+                                        <div id="rRangeSlider" class="range-slider mb-4"></div>
+                                        <div class="range-slider-labels">
+                                            <span class="badge bg-l1">R1</span>
+                                            <span class="badge bg-l2">R2</span>
+                                            <span class="badge bg-l3">R3</span>
+                                            <span class="badge bg-l4">R4</span>
+                                            <span class="badge bg-l5">R5</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <p>© 2025 ATCRiskMind</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wnumb/1.2.0/wNumb.min.js"></script>
+
+    <script src="{{ url_for('static', filename='scripts.min.js') }}"></script>
+</body>
+
+</html>
