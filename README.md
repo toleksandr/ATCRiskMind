@@ -1,3 +1,6 @@
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/toleksandr/ATCRiskMind/blob/trunk/README.md)
+[![uk](https://img.shields.io/badge/lang-uk-yellow.svg)](https://github.com/toleksandr/ATCRiskMind/blob/trunk/README.uk.md)
+
 # ATCRiskMind: Air Traffic Controller Risk Assessment Platform
 
 ATCRiskMind is a web platform for assessing the professional risk of air traffic controllers based on their mental health levels. The system evaluates mental health and fatigue indicators to provide a comprehensive risk assessment using fuzzy logic algorithms.
