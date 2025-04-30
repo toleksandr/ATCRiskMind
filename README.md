@@ -42,6 +42,11 @@ ATCRiskMind is a web platform for assessing the professional risk of air traffic
    pip install -r requirements.txt
    ```
 
+4. Initialize language translations:
+   ```bash
+   pybabel compile -d translations
+   ```
+
 ## Running the Application
 
 1. Start the Flask application:
