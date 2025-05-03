@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-30 15:45+0300\n"
+"POT-Creation-Date: 2025-05-03 21:15+0300\n"
 "PO-Revision-Date: 2025-04-30 15:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
@@ -19,67 +19,163 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: app/templates/index.html:7
+#: templates/index.html:7
 msgid "Платформа оцінки ризику професійної діяльності авіадиспетчерів"
 msgstr ""
 
-#: app/templates/index.html:49
+#: templates/index.html:55
 msgid "Параметри конфігурації системи"
 msgstr ""
 
-#: app/templates/index.html:55
+#: templates/index.html:61
 msgid "Кількість авіадиспетчерів"
 msgstr ""
 
-#: app/templates/index.html:65
+#: templates/index.html:71
 msgid "Інтервали часу оцінювання"
 msgstr ""
 
-#: app/templates/index.html:75
+#: templates/index.html:81
 msgid "Використати зразкові дані"
 msgstr ""
 
-#: app/templates/index.html:79
+#: templates/index.html:85
 msgid "Згенерувати випадкові дані"
 msgstr ""
 
-#: app/templates/index.html:88
+#: templates/index.html:94
 msgid "Фазифіковані вхідні дані за квадратичним Z-сплайном"
 msgstr ""
 
-#: app/templates/index.html:110
+#: templates/index.html:116
 msgid "Показники втомленості авіадиспетчерів"
 msgstr ""
 
-#: app/templates/index.html:131
+#: templates/index.html:139
 msgid "Візуалізація фазифікованих даних за квадратичним Z-сплайном"
 msgstr ""
 
-#: app/templates/index.html:146
+#: templates/index.html:141
+msgid "Опис рівнів Z-сплайн"
+msgstr ""
+
+#: templates/index.html:159
 msgid "Загальні прогнозовані кількісні оцінки втомленості авіадиспетчерів"
 msgstr ""
 
-#: app/templates/index.html:164
+#: templates/index.html:177
 msgid "Фазифіковані вхідні дані за S-подібною функцією належності"
 msgstr ""
 
-#: app/templates/index.html:186
+#: templates/index.html:199
 msgid "Бальні оцінки ментального здоров`я авіадиспетчерів"
 msgstr ""
 
-#: app/templates/index.html:207
+#: templates/index.html:221
 msgid "Візуалізація фазифікованих даних за за S-подібною функцією належності"
 msgstr ""
 
-#: app/templates/index.html:222
+#: templates/index.html:223 templates/index.html:362
+msgid "Опис рівнів ризику"
+msgstr ""
+
+#: templates/index.html:241
 msgid "Агреговані значення результатів оцінювання"
 msgstr ""
 
-#: app/templates/index.html:244
+#: templates/index.html:263
 msgid "Налаштування рівней експертного висновку"
 msgstr ""
 
-#: app/templates/index.html:261
+#: templates/index.html:280
 msgid "Налаштування лінгвістичних рівней ризику"
 msgstr ""
+
+#: templates/index.html:316
+msgid "Опис рівнів фазифікованих даних"
+msgstr ""
+
+#: templates/index.html:323 templates/index.html:369
+msgid "Рівень"
+msgstr ""
+
+#: templates/index.html:324 templates/index.html:370
+msgid "Опис"
+msgstr ""
+
+#: templates/index.html:330
+msgid ""
+"Високий рівень – авіадиспетчер демонструє стабільний емоційний стан, "
+"високу концентрацію уваги, швидке прийняття рішень та відсутність ознак "
+"перевтоми."
+msgstr ""
+
+#: templates/index.html:334
+msgid ""
+"Стабільний рівень – оператор працює ефективно, проте періодично може "
+"відчувати легке емоційне чи когнітивне навантаження, яке не впливає на "
+"його продуктивність."
+msgstr ""
+
+#: templates/index.html:338
+msgid ""
+"Помірний рівень – спостерігається середній рівень стресу та навантаження,"
+" можливе зниження швидкості прийняття рішень та концентрації уваги."
+msgstr ""
+
+#: templates/index.html:342
+msgid ""
+"Критичний рівень – виявляються значні ознаки психоемоційного виснаження, "
+"що може призводити до підвищеного ризику помилок під час роботи."
+msgstr ""
+
+#: templates/index.html:346
+msgid ""
+"Небезпечний рівень – серйозне ментальне виснаження, висока втома, "
+"когнітивні збої та втрата контролю, що становить загрозу для безпеки "
+"польотів."
+msgstr ""
+
+#: templates/index.html:352 templates/index.html:398
+msgid "Закрити"
+msgstr ""
+
+#: templates/index.html:376
+msgid ""
+"Низький рівень ризику – авіадиспетчер демонструє стабільний емоційний "
+"стан, високу концентрацію уваги, швидке прийняття рішень та відсутність "
+"ознак перевтоми. Психофізіологічний стан оптимальний для виконання "
+"професійних обов'язків."
+msgstr ""
+
+#: templates/index.html:380
+msgid ""
+"Помірний рівень ризику – авіадиспетчер відчуває незначне зниження "
+"концентрації уваги або легку втомленість, але здатний ефективно "
+"виконувати завдання. Умови роботи потребують підвищеної уваги, але не "
+"становлять серйозної загрози."
+msgstr ""
+
+#: templates/index.html:384
+msgid ""
+"Середній рівень ризику – виявляється певне зниження ефективності роботи "
+"через стомленість або легкі емоційні коливання. Авіадиспетчер може "
+"потребувати підтримки або невеликої перерви для відновлення."
+msgstr ""
+
+#: templates/index.html:388
+msgid ""
+"Високий рівень ризику – значне зниження концентрації, втомленість або "
+"емоційна нестабільність, що можуть впливати на якість прийнятих рішень. "
+"Існує ризик помилок, які можуть вплинути на безпеку польотів."
+msgstr ""
+
+#: templates/index.html:392
+msgid ""
+"Критичний рівень ризику – серйозні порушення емоційного стану, "
+"втомленість, відсутність здатності до концентрації або прийняття рішень. "
+"Такий рівень ризику загрожує безпеці польотів і вимагає негайного "
+"втручання та заміни авіадиспетчера."
+msgstr ""
+
 

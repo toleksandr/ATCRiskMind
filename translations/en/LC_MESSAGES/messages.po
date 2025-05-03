@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2025-04-30 15:45+0300\n"
+"POT-Creation-Date: 2025-05-03 21:15+0300\n"
 "PO-Revision-Date: 2025-04-30 15:46+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -18,52 +18,133 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.14.0\n"
 
-#: app/templates/index.html:7
+#: templates/index.html:7
 msgid "Платформа оцінки ризику професійної діяльності авіадиспетчерів"
 msgstr "Air Traffic Controllers Professional Risk Assessment Platform"
-#: app/templates/index.html:49
+
+#: templates/index.html:55
 msgid "Параметри конфігурації системи"
 msgstr "System Configuration Parameters"
-#: app/templates/index.html:55
+
+#: templates/index.html:61
 msgid "Кількість авіадиспетчерів"
 msgstr "Number of Air Traffic Controllers"
-#: app/templates/index.html:65
+
+#: templates/index.html:71
 msgid "Інтервали часу оцінювання"
 msgstr "Assessment Time Intervals"
-#: app/templates/index.html:75
+
+#: templates/index.html:81
 msgid "Використати зразкові дані"
 msgstr "Use Sample Data"
-#: app/templates/index.html:79
+
+#: templates/index.html:85
 msgid "Згенерувати випадкові дані"
 msgstr "Generate Random Data"
-#: app/templates/index.html:88
+
+#: templates/index.html:94
 msgid "Фазифіковані вхідні дані за квадратичним Z-сплайном"
 msgstr "Fuzzified Input Data by Quadratic Z-Spline"
-#: app/templates/index.html:110
+
+#: templates/index.html:116
 msgid "Показники втомленості авіадиспетчерів"
 msgstr "Air Traffic Controllers Fatigue Indicators"
-#: app/templates/index.html:131
+
+#: templates/index.html:139
 msgid "Візуалізація фазифікованих даних за квадратичним Z-сплайном"
 msgstr "Visualization of Fuzzified Data by Quadratic Z-Spline"
-#: app/templates/index.html:146
+
+#: templates/index.html:141
+msgid "Опис рівнів Z-сплайн"
+msgstr "Z-Spline Levels Description"
+
+#: templates/index.html:159
 msgid "Загальні прогнозовані кількісні оцінки втомленості авіадиспетчерів"
-msgstr "General Predicted Quantitative Assessments of Air Traffic Controllers Fatigue"
-#: app/templates/index.html:164
+msgstr ""
+"General Predicted Quantitative Assessments of Air Traffic Controllers "
+"Fatigue"
+
+#: templates/index.html:177
 msgid "Фазифіковані вхідні дані за S-подібною функцією належності"
 msgstr "Fuzzified Input Data by S-Shaped Membership Function"
-#: app/templates/index.html:186
+
+#: templates/index.html:199
 msgid "Бальні оцінки ментального здоров`я авіадиспетчерів"
 msgstr "Mental Health Scores of Air Traffic Controllers"
-#: app/templates/index.html:207
+
+#: templates/index.html:221
 msgid "Візуалізація фазифікованих даних за за S-подібною функцією належності"
 msgstr "Visualization of Fuzzified Data by S-Shaped Membership Function"
-#: app/templates/index.html:222
+
+#: templates/index.html:223 templates/index.html:362
+msgid "Опис рівнів ризику"
+msgstr "Risk Levels Description"
+
+#: templates/index.html:241
 msgid "Агреговані значення результатів оцінювання"
 msgstr "Aggregated Assessment Results Values"
-#: app/templates/index.html:244
+
+#: templates/index.html:263
 msgid "Налаштування рівней експертного висновку"
 msgstr "Expert Conclusion Levels Configuration"
-#: app/templates/index.html:261
+
+#: templates/index.html:280
 msgid "Налаштування лінгвістичних рівней ризику"
 msgstr "Linguistic Risk Levels Configuration"
+
+#: templates/index.html:316
+msgid "Опис рівнів фазифікованих даних"
+msgstr "Description of Fuzzified Data Levels"
+
+#: templates/index.html:323 templates/index.html:369
+msgid "Рівень"
+msgstr "Level"
+
+#: templates/index.html:324 templates/index.html:370
+msgid "Опис"
+msgstr "Description"
+
+#: templates/index.html:330
+msgid "Високий рівень – авіадиспетчер демонструє стабільний емоційний стан, високу концентрацію уваги, швидке прийняття рішень та відсутність ознак перевтоми."
+msgstr "High level – air traffic controller demonstrates stable emotional state, high concentration, quick decision-making and no signs of fatigue."
+
+#: templates/index.html:334
+msgid "Стабільний рівень – оператор працює ефективно, проте періодично може відчувати легке емоційне чи когнітивне навантаження, яке не впливає на його продуктивність."
+msgstr "Stable level – operator works efficiently, though may periodically experience slight emotional or cognitive load that doesn't affect productivity."
+
+#: templates/index.html:338
+msgid "Помірний рівень – спостерігається середній рівень стресу та навантаження, можливе зниження швидкості прийняття рішень та концентрації уваги."
+msgstr "Moderate level – medium level of stress and workload is observed, possible reduction in decision-making speed and concentration."
+
+#: templates/index.html:342
+msgid "Критичний рівень – виявляються значні ознаки психоемоційного виснаження, що може призводити до підвищеного ризику помилок під час роботи."
+msgstr "Critical level – significant signs of psycho-emotional exhaustion are detected, which may lead to increased risk of errors during work."
+
+#: templates/index.html:346
+msgid "Небезпечний рівень – серйозне ментальне виснаження, висока втома, когнітивні збої та втрата контролю, що становить загрозу для безпеки польотів."
+msgstr "Dangerous level – serious mental exhaustion, high fatigue, cognitive failures and loss of control that poses a threat to flight safety."
+
+#: templates/index.html:352 templates/index.html:398
+msgid "Закрити"
+msgstr "Close"
+
+#: templates/index.html:376
+msgid "Низький рівень ризику – авіадиспетчер демонструє стабільний емоційний стан, високу концентрацію уваги, швидке прийняття рішень та відсутність ознак перевтоми. Психофізіологічний стан оптимальний для виконання професійних обов'язків."
+msgstr "Low risk level – air traffic controller demonstrates stable emotional state, high concentration, quick decision-making and no signs of fatigue. Psychophysiological state is optimal for performing professional duties."
+
+#: templates/index.html:380
+msgid "Помірний рівень ризику – авіадиспетчер відчуває незначне зниження концентрації уваги або легку втомленість, але здатний ефективно виконувати завдання. Умови роботи потребують підвищеної уваги, але не становлять серйозної загрози."
+msgstr "Moderate risk level – air traffic controller experiences slight decrease in concentration or mild fatigue, but is able to perform tasks effectively. Working conditions require increased attention but do not pose a serious threat."
+
+#: templates/index.html:384
+msgid "Середній рівень ризику – виявляється певне зниження ефективності роботи через стомленість або легкі емоційні коливання. Авіадиспетчер може потребувати підтримки або невеликої перерви для відновлення."
+msgstr "Medium risk level – some decrease in work efficiency due to fatigue or mild emotional fluctuations is detected. Air traffic controller may need support or a short break for recovery."
+
+#: templates/index.html:388
+msgid "Високий рівень ризику – значне зниження концентрації, втомленість або емоційна нестабільність, що можуть впливати на якість прийнятих рішень. Існує ризик помилок, які можуть вплинути на безпеку польотів."
+msgstr "High risk level – significant decrease in concentration, fatigue or emotional instability that may affect the quality of decisions. There is a risk of errors that may impact flight safety."
+
+#: templates/index.html:392
+msgid "Критичний рівень ризику – серйозні порушення емоційного стану, втомленість, відсутність здатності до концентрації або прийняття рішень. Такий рівень ризику загрожує безпеці польотів і вимагає негайного втручання та заміни авіадиспетчера."
+msgstr "Critical risk level – serious emotional state disturbances, fatigue, lack of ability to concentrate or make decisions. This risk level threatens flight safety and requires immediate intervention and replacement of the air traffic controller."
 

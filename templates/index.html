@@ -134,8 +134,14 @@
                     </div>
                     <div class="col-md-6 d-flex">
                         <div class="card shadow-sm flex-fill" id="D1">
-                            <div class="card-header">
-                                <h5><i class="fas fa-chart-treemap me-2"></i>{{ _('Візуалізація фазифікованих даних за квадратичним Z-сплайном') }}</h5>
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5>
+                                    <i class="fas fa-chart-treemap me-2"></i>{{ _('Візуалізація фазифікованих даних за квадратичним Z-сплайном') }}
+                                    <a href="#" class="text-info ms-2" data-bs-toggle="tooltip" data-bs-html="true" 
+                                       title="{{ _('Опис рівнів Z-сплайн') }}" id="helpLambdaMh">
+                                        <i class="fas fa-question-circle"></i>
+                                    </a>
+                                </h5>
                             </div>
                             <div class="card-body">
                                 <div class="chart-container">
@@ -210,8 +216,14 @@
                     </div>
                     <div class="col-md-6 d-flex">
                         <div class="card shadow-sm flex-fill" id="D2">
-                            <div class="card-header">
-                                <h5><i class="fas fa-chart-treemap me-2"></i>{{ _('Візуалізація фазифікованих даних за за S-подібною функцією належності') }}</h5>
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h5>
+                                    <i class="fas fa-chart-treemap me-2"></i>{{ _('Візуалізація фазифікованих даних за за S-подібною функцією належності') }}
+                                    <a href="#" class="text-info ms-2" data-bs-toggle="tooltip" data-bs-html="true" 
+                                       title="{{ _('Опис рівнів ризику') }}" id="helpLmh">
+                                        <i class="fas fa-question-circle"></i>
+                                    </a>
+                                </h5>
                             </div>
                             <div class="card-body">
                                 <div class="chart-container">
@@ -295,6 +307,100 @@
             </div>
         </footer>
     </div>
+
+
+    <div class="modal fade" id="lambdaMhHelpModal" tabindex="-1" aria-labelledby="lambdaMhHelpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lambdaMhHelpModalLabel">{{ _('Опис рівнів фазифікованих даних') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>{{ _('Рівень') }}</th>
+                                <th>{{ _('Опис') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bg-l1 text-center">L1</td>
+                                <td>{{ _('Високий рівень – авіадиспетчер демонструє стабільний емоційний стан, високу концентрацію уваги, швидке прийняття рішень та відсутність ознак перевтоми.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l2 text-center">L2</td>
+                                <td>{{ _('Стабільний рівень – оператор працює ефективно, проте періодично може відчувати легке емоційне чи когнітивне навантаження, яке не впливає на його продуктивність.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l3 text-center">L3</td>
+                                <td>{{ _('Помірний рівень – спостерігається середній рівень стресу та навантаження, можливе зниження швидкості прийняття рішень та концентрації уваги.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l4 text-center">L4</td>
+                                <td>{{ _('Критичний рівень – виявляються значні ознаки психоемоційного виснаження, що може призводити до підвищеного ризику помилок під час роботи.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l5 text-center">L5</td>
+                                <td>{{ _('Небезпечний рівень – серйозне ментальне виснаження, висока втома, когнітивні збої та втрата контролю, що становить загрозу для безпеки польотів.') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ _('Закрити') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="modal fade" id="lmhHelpModal" tabindex="-1" aria-labelledby="lmhHelpModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="lmhHelpModalLabel">{{ _('Опис рівнів ризику') }}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-bordered">
+                        <thead class="table-light">
+                            <tr>
+                                <th>{{ _('Рівень') }}</th>
+                                <th>{{ _('Опис') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="bg-l1 text-center">R1</td>
+                                <td>{{ _('Низький рівень ризику – авіадиспетчер демонструє стабільний емоційний стан, високу концентрацію уваги, швидке прийняття рішень та відсутність ознак перевтоми. Психофізіологічний стан оптимальний для виконання професійних обов\'язків.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l2 text-center">R2</td>
+                                <td>{{ _('Помірний рівень ризику – авіадиспетчер відчуває незначне зниження концентрації уваги або легку втомленість, але здатний ефективно виконувати завдання. Умови роботи потребують підвищеної уваги, але не становлять серйозної загрози.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l3 text-center">R3</td>
+                                <td>{{ _('Середній рівень ризику – виявляється певне зниження ефективності роботи через стомленість або легкі емоційні коливання. Авіадиспетчер може потребувати підтримки або невеликої перерви для відновлення.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l4 text-center">R4</td>
+                                <td>{{ _('Високий рівень ризику – значне зниження концентрації, втомленість або емоційна нестабільність, що можуть впливати на якість прийнятих рішень. Існує ризик помилок, які можуть вплинути на безпеку польотів.') }}</td>
+                            </tr>
+                            <tr>
+                                <td class="bg-l5 text-center">R5</td>
+                                <td>{{ _('Критичний рівень ризику – серйозні порушення емоційного стану, втомленість, відсутність здатності до концентрації або прийняття рішень. Такий рівень ризику загрожує безпеці польотів і вимагає негайного втручання та заміни авіадиспетчера.') }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ _('Закрити') }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
