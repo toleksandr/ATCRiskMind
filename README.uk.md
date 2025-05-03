@@ -41,6 +41,11 @@ ATCRiskMind — це веб-платформа для оцінювання ри�
    ```bash
    pip install -r requirements.txt
    ```
+   
+4. Ініціалізуйте переклади мов:
+   ```bash
+   pybabel compile -d translations
+   ```
 
 ## Запуск додатку
 
